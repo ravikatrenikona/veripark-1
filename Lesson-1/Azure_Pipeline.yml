@@ -53,7 +53,7 @@ steps:
 
 # use connection string defined VSTS variables
 - powershell: |
-   $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark220.crm.dynamics.com;Domain=veripark22;UserName=ravimahesh2011@veripark220.onmicrosoft.com; Password=Mahsan143@" 
+   $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark220.crm.dynamics.com;Domain=veripark22;UserName=ravimahesh2011@veripark22.onmicrosoft.com; Password=Mahsan143@" 
     # $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;Domain=veripark22;UserName=$env:ServiceAccountUpn;Password=$env:ServiceAccountPassword;Url=https://$env:EnvironmentName.crm.dynamics.com"
    # $connection = Get-CrmConnection `
     #  -ConnectionString `
