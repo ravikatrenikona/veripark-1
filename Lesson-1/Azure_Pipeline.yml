@@ -58,8 +58,8 @@ steps:
       -conn $connection `
       -SolutionFilePath $(Build.ArtifactStagingDirectory)\packedSolution\$($env:SolutionName)_managed.zip
    env:`
-    EnvironmentName:$(environment.name)`
-    SolutionName:$(solution.name)`
-    ServiceAccountUpn:$(serviceAccount.upn)`
-    ServiceAccountPassword:$(serviceAccount.password)`
+    EnvironmentName:$(environment.name)
+    SolutionName:$(solution.name)
+    ServiceAccountUpn:$(serviceAccount.upn)
+    ServiceAccountPassword:$(serviceAccount.password)
     displayName:'Import solution'
