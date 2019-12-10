@@ -56,13 +56,10 @@ steps:
     $connection = Get-CrmConnection `
       -ConnectionString `
         ("AuthType = Office365;" + `
-          "OrganizationName = $env:EnvironmentName;" + `
         "Username = $env:ServiceAccountUpn;" + `
         "Password = $env:ServiceAccountPassword;" + `
-        "Url = https://$env:EnvironmentName.crm.dynamics.com" )
-
-# import solution into target machines
-Import-CrmSolution `
+        "Url = https://$env:EnvironmentName.crm.dynamics.com")
+    Import-CrmSolution `
       -conn $connection `
       -SolutionFilePath $(Build.ArtifactStagingDirectory)\packedSolution\$($env:SolutionName)_managed.zip
   env:
@@ -70,4 +67,4 @@ Import-CrmSolution `
     SolutionName: $(solution.name)
     ServiceAccountUpn: $(serviceAccount.upn)
     ServiceAccountPassword: $(serviceAccount.password)
-  
+  displayName: 'Import solution'
