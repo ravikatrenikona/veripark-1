@@ -48,8 +48,8 @@ steps:
 
 #download packages
 
-#- powershell:Install-Module Microsoft.Xrm.Data.Powershell -Scope #CurrentUser -Force
-  #displayName: 'Install Microsoft.Xrm.Data.PowerShell'
+- powershell: Install-Module Microsoft.Xrm.Data.Powershell -Scope CurrentUser -Force
+  displayName: 'Install Microsoft.Xrm.Data.PowerShell'
 
 # use connection string defined VSTS variables
 - powershell: |
