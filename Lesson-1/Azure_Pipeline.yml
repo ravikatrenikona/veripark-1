@@ -53,13 +53,21 @@ steps:
 
 # use connection string defined VSTS variables
 - powershell: |
-  $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark220.crm.dynamics.com;Domain=veripark22;UserName=ravimahesh2011@veripark22.onmicrosoft.com;Password=Mahsan143@"
+   
+   $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;UserName=$env:ServiceAccountUpn;Password=$env:ServiceAccountPassword;Url=https://$env:EnvironmentName.crm.dynamics.com"
+   # $connection = Get-CrmConnection `
+    #  -ConnectionString `
+     #   ("AuthType = Office365;" + `
+      #  "Username = $env:ServiceAccountUpn;" + `
+       # "Password = $env:ServiceAccountPassword;" + `
+        #"Url = https://$env:EnvironmentName.crm.dynamics.com")
+
     Import-CrmSolution `
       -conn $connection `
       -SolutionFilePath $(Build.ArtifactStagingDirectory)\packedSolution\$($env:SolutionName)_managed.zip
-      env:`
-       "EnvironmentName:$(environment.name)" 
-       "SolutionName:$(solution.name)"
-       "ServiceAccountUpn:$(serviceAccount.upn)"
-       "ServiceAccountPassword:$(serviceAccount.password)"
-       displayName:'Import solution'
+  env:
+    EnvironmentName: $(environment.name)
+    SolutionName: $(solution.name)
+    ServiceAccountUpn: $(serviceAccount.upn)
+    ServiceAccountPassword: $(serviceAccount.password)
+  displayName: 'Import solution'
