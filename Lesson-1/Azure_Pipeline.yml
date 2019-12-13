@@ -80,3 +80,11 @@ steps:
     ServiceAccountUpn: $(serviceAccount.upn)
     ServiceAccountPassword: $(serviceAccount.password)
   displayName: 'Import solution'
+
+
+- powershell: |
+   $CRMConn1=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark220.crm.dynamics.com;Domain=veripark22;UserName=ravimahesh2011@veripark22.onmicrosoft.com; Password=Mahsan143@" 
+   Import-CrmPackage `
+    –CrmConnection $CRMConn1 `
+    –PackageDirectory $PackageDirectory `
+    –PackageName $PackageName -Verbose `
