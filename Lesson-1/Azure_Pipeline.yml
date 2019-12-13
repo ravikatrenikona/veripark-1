@@ -83,8 +83,8 @@ steps:
 
 
 - powershell: |
-   $PackageDirectory = Get-Item $(Build.ArtifactStagingDirectory)\tools\PackageDeployment.PowerShell
-   $PackageName = $(Build.ArtifactStagingDirectory)\Lesson-1\packedSolution\SimpleSurvey.dll
+   $PackageDirectory = Get-Item $(Build.SourceDirectory)\tools\PackageDeployment.PowerShell
+   $PackageName = $(Build.SourceDirectory)\Lesson-1\packedSolution\SimpleSurvey.dll
    $CRMConn1=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark220.crm.dynamics.com;Domain=veripark22;UserName=ravimahesh2011@veripark22.onmicrosoft.com; Password=Mahsan143@" 
    Import-CrmPackage `
     –CrmConnection $CRMConn1 `
