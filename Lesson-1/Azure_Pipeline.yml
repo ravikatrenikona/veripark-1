@@ -57,7 +57,7 @@ steps:
 
 #download packages
 
-- powershell: Install-Module Microsoft.Xrm.Data.Powershell -Force 
+- powershell: Install-Module Microsoft.Xrm.Data.Powershell -Force -AllowClobber
   displayName: 'Install Microsoft.Xrm.Data.PowerShell'
 
 # use connection string defined VSTS variables
