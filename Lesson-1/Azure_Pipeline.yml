@@ -57,7 +57,7 @@ steps:
 
 #download packages
 
-- powershell: Install-Module Microsoft.Xrm.Data.Powershell -Scope CurrentUser -Force 
+- powershell: Install-Module Microsoft.Xrm.Data.Powershell -Credential PSCredential -Scope CurrentUser -Force 
   displayName: 'Install Microsoft.Xrm.Data.PowerShell'
 
 # use connection string defined VSTS variables
