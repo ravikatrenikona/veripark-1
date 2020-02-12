@@ -62,14 +62,8 @@ steps:
 
 # use connection string defined VSTS variables
 - powershell: |
-   $connection=Get-CrmConnection -ConnectionString " "AuthType=Office365;ServiceUri=https://veripark130.crm8.dynamics.com/XRMServices/2011/Organization.svc?wsdl;Username=ravimahesh2011@veripark13.onmicrosoft.com;Password=Mahsan143@;Organization=Veripark13" 
-    # $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;Domain=veripark22;UserName=$env:ServiceAccountUpn;Password=$env:ServiceAccountPassword;Url=https://$env:EnvironmentName.crm.dynamics.com"
-   # $connection = Get-CrmConnection `
-    #  -ConnectionString `
-     #   ("AuthType = Office365;" + `
-      #  "Username = $env:ServiceAccountUpn;" + `
-       # "Password = $env:ServiceAccountPassword;" + `
-        #"Url = https://$env:EnvironmentName.crm.dynamics.com")
+   $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;ServiceUri=https://veripark130.crm8.dynamics.com/XRMServices/2011/Organization.svc?wsdl;Username=ravimahesh2011@veripark13.onmicrosoft.com;Password=Mahsan143@;Organization=Veripark13" 
+    
 
     Import-CrmSolution `
       -conn $connection `
@@ -85,7 +79,7 @@ steps:
 - powershell: |
    $PackageDirectory = Get-Item $(System.DefaultWorkingDirectory)\tools\PackageDeployment.PowerShell
    $PackageName = Get-Item $(System.DefaultWorkingDirectory)\Lesson-1\packedSolution\SimpleSurvey.dll
-   $CRMConn1=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark220.crm.dynamics.com;Domain=veripark22;UserName=ravimahesh2011@veripark22.onmicrosoft.com; Password=Mahsan143@" 
+   $CRMConn1=Get-CrmConnection -ConnectionString "AuthType=Office365;Url=https://veripark130.crm.dynamics.com;Domain=veripark13;UserName=ravimahesh2011@veripark13.onmicrosoft.com; Password=Mahsan143@" 
    Import-CrmPackage `
     –CrmConnection $CRMConn1 `
      –PackageDirectory $(System.DefaultWorkingDirectory)\tools\PackageDeployment.PowerShell `
