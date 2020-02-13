@@ -90,5 +90,5 @@ steps:
    $connection=Get-CrmConnection -ConnectionString "AuthType=Office365;ServiceUri=https://veripark1200.crm8.dynamics.com/XRMServices/2011/Organization.svc?wsdl;Username=ravimahsan2014@veripark120.onmicrosoft.com;Password=Mahsan143@;Organization=Veripark120"
    Import-CrmPackage `
     –CrmConnection $CRMConn1 `
-     –PackageDirectory $(System.DefaultWorkingDirectory)\tools\PackageDeployment.PowerShell `
+     –PackageDirectory $(System.DefaultWorkingDirectory)\tools\PackageDeployment.PowerShell\tools\PackageDeployment `
     –PackageName $(System.DefaultWorkingDirectory)\Lesson-1\packedSolution\SimpleSurvey.dll -Verbose `
